@@ -23,6 +23,8 @@ a{
     text-decoration: none;
     color: var(--line-color-one);
 }
+
+/*First main Start Here*/
 .main-home{
     width: 100vw;
     min-height: 100vh;
@@ -104,3 +106,10 @@ a{
     align-items: center;
     gap: 10px;
 }
+
+
+/*Sencod main Start Here*/
+
+
+/*Last main Start Here*/
+
