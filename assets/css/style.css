@@ -15,8 +15,15 @@
 body{
     font-family: 'Open Sans', sans-serif;
 }
-
-main{
+img{
+    width: 100%;
+}
+a{
+    display: block;
+    text-decoration: none;
+    color: var(--line-color-one);
+}
+.main-home{
     width: 100vw;
     min-height: 100vh;
     display: flex;
@@ -24,11 +31,76 @@ main{
     align-items: center;
     background-color: var(--line-color-two);
 } 
-.container{
-    min-width: 360px;
-    min-height: 720px;
+.main-home .container{
+    position: relative;
+    min-width: 320px;
+    min-height: 640px;
     border-radius: 10px;
     border:1px solid var(--global-color-three);
     background-color: var(--global-color-one);
-    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.change-count{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.user-selected{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user-selected .user-img{
+    width:150px;
+    height: 150px;
+    border:10px solid var(--line-color-two);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--global-color-three);
+    margin-bottom: 15px;
+}
+.user-text{
+    font-size: 14pt;
+    text-align: center;
+}
+.user-text .user--name{
+    font-weight: bold;
+}
+.user-selected form{
+    margin-top: 30px;
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.user-selected input,
+.user-selected button{
+    background-color: none;
+    border:none;
+    border-radius: 3px;
+    padding: 10px;
+    outline: none;
+}
+.user-selected input{
+    width: 70%;
+    border:1px solid var(--line-color-two);
+    font-size: 12pt;
+}
+.user-selected button{
+    width: 100px;
+    background-color: var(--primary-color);
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--global-color-one);
+}
+.other-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
