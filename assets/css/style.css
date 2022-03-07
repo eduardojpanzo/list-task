@@ -4,12 +4,12 @@
     padding: 0;
 }
 :root{
-    --global-color-one:#fff;
+    --global-color-one:#fffe;
     --global-color-two:#000;
-    --global-color-three:#f1f5f8d2;
+    --global-color-three:#fff5;
     --primary-color:#152f46c9;
     --line-color-one:#6a71ca;
-    --line-color-two:#d4d7dc70;
+    --line-color-two:#c9c9c970;
     --sucess-color:#07d1079d;
 }
 body{
@@ -19,26 +19,29 @@ img{
     width: 100%;
 }
 a{
-    display: block;
     text-decoration: none;
     color: var(--line-color-one);
 }
-
-/*First main Start Here*/
-.main-home{
+main{
     width: 100vw;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--line-color-two);
-} 
-.main-home .container{
-    position: relative;
-    min-width: 320px;
-    min-height: 640px;
+    background-color: #a8b6cc85;
+}
+main .container{
+    width: 320px;
+    height: 600px;
     border-radius: 10px;
     border:1px solid var(--global-color-three);
+    overflow: hidden;
+}
+
+
+/*First container of main Start Here*/
+.home.container{
+    position: relative;
     background-color: var(--global-color-one);
 
     display: flex;
@@ -108,8 +111,68 @@ a{
 }
 
 
-/*Sencod main Start Here*/
+/*Sencod container of main Start Here*/
+.lists.container{
+    background-color: var(--global-color-three);
+}
+.lists-header{
+    padding: 25px 20px 10px;
+    margin-bottom: 5px;
+    background-color: var(--global-color-one);
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-log{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+.user-log .user--img{
+    width: 45px;
+    height: 45px;
+    border:3px solid var(--line-color-two);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--global-color-three);
+}
+.lists-body{
+    padding: 0 20px;
+    margin-bottom: 10px;
+    overflow-y: scroll;
 
-/*Last main Start Here*/
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.lists-body::-webkit-scrollbar{
+    background-color: var(--line-color-two);
+    width: 5px;
+    border-radius: 2px;
+}
+.lists-body::-webkit-scrollbar-thumb{
+    border-radius: 2px;
+    background-color: #ccc;
+}
+.lists{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.lists .list{
+    padding: 10px;
+    background-color: var(--global-color-one);
+    box-shadow: 0 2px 4px #aaa;
+    font-weight: bold;
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: space-between;
+}
+.lists-body .new-list{
+    font-size: 0.84em;
+}
+
+/*Last container of main Start Here*/
 
