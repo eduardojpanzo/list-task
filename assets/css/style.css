@@ -6,10 +6,10 @@
 :root{
     --global-color-one:#fffe;
     --global-color-two:#000;
-    --global-color-three:#fff5;
+    --global-color-three:#fffa;
     --primary-color:#152f46c9;
     --line-color-one:#6a71ca;
-    --line-color-two:#c9c9c970;
+    --line-color-two:#ccca;
     --sucess-color:#07d1079d;
 }
 body{
@@ -146,15 +146,6 @@ main .container{
     flex-direction: column;
     gap: 10px;
 }
-.lists-body::-webkit-scrollbar{
-    background-color: var(--line-color-two);
-    width: 5px;
-    border-radius: 2px;
-}
-.lists-body::-webkit-scrollbar-thumb{
-    border-radius: 2px;
-    background-color: #ccc;
-}
 .lists{
     display:flex;
     flex-direction: column;
@@ -163,7 +154,7 @@ main .container{
 .lists .list{
     padding: 10px;
     background-color: var(--global-color-one);
-    box-shadow: 0 2px 4px #aaa;
+    box-shadow: 0 2px 4px #aaa8;
     font-weight: bold;
     cursor: pointer;
     
@@ -175,4 +166,55 @@ main .container{
 }
 
 /*Last container of main Start Here*/
+.tasks.container{
+    background-color: var(--global-color-three);
+}
+.tasks-head{
+    padding: 20px;
+    font-weight: bolder;
+    margin-bottom: 10px;
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tasks-body{
+    padding: 0 20px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    height: 76%;
+}
+.list.task-done{
+    background-color: transparent;
+    box-shadow: none;
+    color: var(--line-color-two);
+}
+.task-done .task--name{
+    text-decoration: line-through;
+}
+.task-done .task--status{
+    color: var(--sucess-color);
+}
+.tasks-footer{
+    background-color: var(--primary-color);
+    text-transform: uppercase;
+    color: var(--global-color-one);
+
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Scrols*/
+.tasks-body::-webkit-scrollbar,
+.lists-body::-webkit-scrollbar{
+    background-color: var(--line-color-two);
+    width: 5px;
+    border-radius: 2px;
+}
+.tasks-body::-webkit-scrollbar-thumb,
+.lists-body::-webkit-scrollbar-thumb{
+    border-radius: 2px;
+    background-color: #ccc;
+}
