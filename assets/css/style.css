@@ -140,7 +140,7 @@ main .container{
 .lists-body{
     padding: 0 20px;
     margin-bottom: 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     display: flex;
     flex-direction: column;
