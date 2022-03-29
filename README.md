@@ -3,4 +3,4 @@
 
 *Poderei registrar o que tenho que fazer
 *desmarcar as tarefas já feitas
-*Organizar as tarefas poe grupo
+*Organizar as tarefas por grupo
