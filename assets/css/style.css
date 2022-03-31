@@ -114,6 +114,7 @@ main .container{
 /*Sencod container of main Start Here*/
 .lists.container{
     background-color: var(--global-color-three);
+    display: none;
 }
 .lists-header{
     padding: 25px 20px 10px;
@@ -168,6 +169,7 @@ main .container{
 /*Last container of main Start Here*/
 .tasks.container{
     background-color: var(--global-color-three);
+    display: none;
 }
 .tasks-head{
     padding: 20px;
