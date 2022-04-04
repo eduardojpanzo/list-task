@@ -3,11 +3,11 @@ const  home = document.querySelector('.home.container')
 const  lists = document.querySelector('.lists.container')
 const  tasks = document.querySelector('.tasks.container')
 const users = [
-    {id:1,name:'Jordam Machael',password:'JM1',urlImg:'../../media/homem.png'},
-    {id:2,name:'Miguel Eduardo',password:'ME2',urlImg:'../../media/homem1.png'},
-    {id:3,name:'Pedro Anfré',password:'PA3',urlImg:'../../media/homem2.png'},
-    {id:4,name:'Nami Helena',password:'NH4',urlImg:'../../media/mulher1.png'},
-    {id:5,name:'Carolina Maria',password:'CM5',urlImg:'../../media/mulher2.png'}
+    {id:1,name:'Jordam Machael',password:'JM1',urlImg:'.../../media/homem.png'},
+    {id:2,name:'Miguel Eduardo',password:'ME2',urlImg:'.../../media/homem1.png'},
+    {id:3,name:'Pedro Anfré',password:'PA3',urlImg:'.../../media/homem2.png'},
+    {id:4,name:'Nami Helena',password:'NH4',urlImg:'.../../media/mulher1.png'},
+    {id:5,name:'Carolina Maria',password:'CM5',urlImg:'.../../media/mulher2.png'}
 ];
 
 const listTask = [
