@@ -1,8 +1,12 @@
+const select = document.querySelector('#accountType');
+const  home = document.querySelector('.home.container')
+const  lists = document.querySelector('.lists.container')
+const  tasks = document.querySelector('.tasks.container')
 const users = [
     {id:1,name:'Jordam Machael',password:'JM1',urlImg:'../../media/homem.png'},
     {id:2,name:'Miguel Eduardo',password:'ME2',urlImg:'../../media/homem1.png'},
     {id:3,name:'Pedro Anfré',password:'PA3',urlImg:'../../media/homem2.png'},
-    {id:4,name:'Afonso Mateus',password:'AM4',urlImg:'../../media/mulher1.png'},
+    {id:4,name:'Nami Helena',password:'NH4',urlImg:'../../media/mulher1.png'},
     {id:5,name:'Carolina Maria',password:'CM5',urlImg:'../../media/mulher2.png'}
 ];
 
@@ -65,3 +69,17 @@ const listTask = [
         ]
     }
 ]
+
+users.map(user=>{
+    const userOption = document.createElement('option');
+    userOption.setAttribute('value',user.id);
+    userOption.innerHTML = user.name;
+    select.append(userOption)
+})
+
+select.addEventListener('input',(e)=>{
+    const userId = Number(e.target.value)
+    const user = users.filter(user=>user.id === userId)[0];
+
+    enableUser(user)
+})
