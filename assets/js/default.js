@@ -1,6 +1,7 @@
 const select = document.querySelector('#accountType');
 const  home = document.querySelector('.home.container')
-const  lists = document.querySelector('.lists.container')
+const  listsTask = document.querySelector('.listsTask.container')
+const lists = listsTask.querySelector('.lists-body .lists');
 const  tasks = document.querySelector('.tasks.container')
 const users = [
     {id:1,name:'Jordam Machael',password:'JM1',urlImg:'.../../media/homem.png'},
