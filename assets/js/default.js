@@ -2,8 +2,10 @@ const select = document.querySelector('#accountType');
 const  home = document.querySelector('.home.container')
 const  listsTask = document.querySelector('.listsTask.container')
 const lists = listsTask.querySelector('.lists-body .lists');
-const modelList = document.querySelector('.modelsArea .list')
-const  tasksTamplete = document.querySelector('.tasks.container')
+const modelsArea = document.querySelector('.modelsArea');
+const tasksTamplete = document.querySelector('.tasks.container');
+const modalInput = document.querySelector('.modalInput');
+
 const users = [
     {id:1,name:'Jordam Machael',password:'JM1',urlImg:'.../../media/homem.png'},
     {id:2,name:'Miguel Eduardo',password:'ME2',urlImg:'.../../media/homem1.png'},
@@ -12,7 +14,7 @@ const users = [
     {id:5,name:'Carolina Maria',password:'CM5',urlImg:'.../../media/mulher2.png'}
 ];
 
-const listTask = [
+const AllListTask = [
     {
         id:1,
         userRef:1,
