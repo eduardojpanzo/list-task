@@ -48,78 +48,26 @@
                     <div class="user--name">Arya</div>
                 </div>
     
-                <div class="back-home"> &LeftArrow;</div>
+                <div class="back-home" onclick="goToHome()"> &LeftArrow;</div>
             </section>
     
             <section class="lists-body">
                 <div class="lists">
-                    <div class="list">
-                        <div class="list--name">Targets</div>
-                        <div class="list--avaliable">4</div>
-                    </div>
-                    <div class="list">
-                        <div class="list--name">Plans</div>
-                        <div class="list--numberTask">1</div>
-                    </div>
                 </div>
     
                 <div class="new-list">
-                    <a href="#">+ Add New List</a>
+                    <a href="#" onclick="showModal()">+ Add New List</a>
                 </div>
             </section>
         </div>
         
         <div class="tasks container">
             <section class="tasks-head">
-                <div class="tasks--name"> a- Target</div>
+                <div class="tasks--name" onclick="goback()"></div>
                 <div class="list--option">...</div>
             </section>
 
             <section class="tasks-body lists">
-                <div class="list task-to-do">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">O</div>
-                </div>
-                <div class="list task-to-do">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">O</div>
-                </div>
-                <div class="list task-to-do">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">O</div>
-                </div>
-                <div class="list task-to-do">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">O</div>
-                </div>
-                <div class="list task-to-do">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">O</div>
-                </div>
-                <div class="list task-to-do">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">O</div>
-                </div>
-                <div class="list task-to-do">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">O</div>
-                </div>
-                <div class="list task-to-do">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">O</div>
-                </div>
-                <div class="list task-to-do">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">O</div>
-                </div>
-                <div class="list task-done">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">v</div>
-                </div>
-                <div class="list task-done">
-                    <div class="task--name">Cersei Lannister</div>
-                    <div class="task--status">v</div>
-                </div>
             </section>
 
             <section class="tasks-footer">
@@ -135,8 +83,19 @@
             <div class="list--name"></div>
             <div class="list--numberTask"></div>
         </div>
+
+        <div class="task list">
+            <div class="task--name"></div>
+            <div class="task--status"></div>
+        </div>
     </div>
 
+    <div class="modalInput">
+        <input type="text">
+        <a href="#" onclick="onAddList()">Adicionar</a>
+    </div>
+
+    <script src="assets/js/classes.js"></script>
     <script src="assets/js/default.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
