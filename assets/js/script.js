@@ -50,19 +50,26 @@ function assembleList(userId) {
     lists.innerHTML = ``;
 
     userListTask.map(userList=>{
-        const listItem = `
-            <div class="list">
-                <div class="list--name">${userList.title}</div>
-                <div class="list--avaliable">${userList.tasks.length}</div>
-            </div>
-        `;
+        const listItem = modelList.cloneNode(true);
 
-        lists.innerHTML += listItem;
+        listItem.querySelector('.list--name').innerHTML = userList.title;
+        listItem.querySelector('.list--numberTask')
+            .innerHTML = userList.tasks.length;
+        
+        listItem.addEventListener('click',(e)=>{
+            handletasks(userList.title,userList.tasks)
+        });
+
+        lists.append(listItem);
     });
 
 }
 
 //Da tarefa escolhida ter os feitos e não feiots
-function handletasks() {
+function handletasks(title,tasks) {
+    listsTask.style.display = 'none';
+    tasksTamplete.style.display = 'block';
+    
     console.log('tasks');
+    console.log(title+ '  '+tasks);
 }
