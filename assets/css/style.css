@@ -36,6 +36,7 @@ main .container{
     border-radius: 10px;
     border:1px solid var(--global-color-three);
     overflow: hidden;
+    transition: all ease 0.5s;
 }
 
 
@@ -138,6 +139,11 @@ main .container{
     border-radius: 50%;
     box-shadow: 0 0 10px var(--global-color-three);
 }
+.back-home{
+    font-weight: bold;
+    font-size: 16pt;
+    cursor: pointer;
+}
 .lists-body{
     padding: 0 20px;
     margin-bottom: 10px;
@@ -179,6 +185,9 @@ main .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.tasks-head .tasks--name{
+    cursor: pointer;
 }
 .tasks-body{
     padding: 0 20px;
@@ -223,4 +232,30 @@ main .container{
 
 .modelsArea{
     display: none;
+}
+.modalInput{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: rgb(0, 0, 0,0.2);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.modalInput input{
+    font-size: 14pt;
+    padding: 5px;
+}
+
+.modalInput a{
+    background-color: var(--primary-color);
+    color: var(--global-color-one);
+    border-radius: 3px;
+    padding: 6px 10px;
+    font-size: 14pt;
 }
