@@ -14,8 +14,8 @@ document.querySelector(".home #logIn").addEventListener('click',(e)=>{
 function enableUser(user){
     userActive = user;
 
-    document.querySelector('.home .user-img img').src = `${userActive.urlImg}`;
-    document.querySelector('.home .user--name').innerHTML = `${userActive.name}`;
+    home.querySelector('.user-img img').src = `${userActive.urlImg}`;
+    home.querySelector('.user--name').innerHTML = `${userActive.name}`;
 }
 
 
@@ -34,11 +34,35 @@ function passwordComfirmed(user,password) {
 
 //A partir do login ir na segundo pagina 'lists'
 function handleUserList(user) {
-    console.log('ir para as tarefas... do ' + user.name);
-
+    
     home.style.display = 'none';
-    lists.style.display = 'block';
+    listsTask.style.display = 'block';
+    
+    listsTask.querySelector('.user--img img').src = user.urlImg;
+    listsTask.querySelector('.user--name').innerHTML = user.name;
+    
+    assembleList(user.id)
+}
+//Carregar enumeras tarefas apartir do usuario escolhido
+
+function assembleList(userId) {
+    const userListTask = listTask.filter(list=>list.userRef===userId);
+    lists.innerHTML = ``;
+
+    userListTask.map(userList=>{
+        const listItem = `
+            <div class="list">
+                <div class="list--name">${userList.title}</div>
+                <div class="list--avaliable">${userList.tasks.length}</div>
+            </div>
+        `;
+
+        lists.innerHTML += listItem;
+    });
+
 }
 
-//Carregar enumeras tarefas apartir do usuario escolhido
 //Da tarefa escolhida ter os feitos e não feiots
+function handletasks() {
+    console.log('tasks');
+}
