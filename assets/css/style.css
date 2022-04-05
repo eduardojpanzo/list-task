@@ -112,7 +112,7 @@ main .container{
 
 
 /*Sencod container of main Start Here*/
-.lists.container{
+.listsTask.container{
     background-color: var(--global-color-three);
     display: none;
 }
