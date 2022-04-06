@@ -29,6 +29,7 @@
 
                 <form action="">
                     <input type="password" name="password" id="password" placeholder="Informe a palavra passe">
+                    <span class="passwordView">A senha é:JM1</span>
                     <button id="logIn" type="submit">Log In</button>
                 </form>
             </section>
@@ -56,21 +57,21 @@
                 </div>
     
                 <div class="new-list">
-                    <a href="#" onclick="showModal()">+ Add New List</a>
+                    <a href="#" onclick="onAdd('list')">+ Add New List</a>
                 </div>
             </section>
         </div>
         
         <div class="tasks container">
             <section class="tasks-head">
-                <div class="tasks--name" onclick="goback()"></div>
+                <div class="tasks--name" onclick="goToList()"></div>
                 <div class="list--option">...</div>
             </section>
 
             <section class="tasks-body lists">
             </section>
 
-            <section class="tasks-footer">
+            <section class="tasks-footer" onclick="onAdd('tasks')">
                 <div class="new-task">
                     + ADD new 
                 </div>
@@ -92,7 +93,7 @@
 
     <div class="modalInput">
         <input type="text">
-        <a href="#" onclick="onAddList()">Adicionar</a>
+        <a href="#">Adicionar</a>
     </div>
 
     <script src="assets/js/classes.js"></script>
