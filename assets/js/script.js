@@ -55,6 +55,7 @@ function assembleList(userId) {
 
 function showPassword() {
     passwordView.style.opacity = '1';
+    passwordView.innerHTML = `A senha é: ${userActive.password}`;
 }
 
 function goToHome(){
