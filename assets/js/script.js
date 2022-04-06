@@ -1,14 +1,3 @@
-let userActive,listActive;
-
-document.querySelector(".home #logIn").addEventListener('click',(e)=>{
-    e.preventDefault();
-
-    if (userActive) {
-        const password = document.querySelector('.home #password').value;
-        confirmUser(userActive,password);
-    }
-});
-
 //Selecionar e montar um user
 //Escolha de um usúario e  ative depois da escolha
 function enableUser(user){
@@ -18,14 +7,13 @@ function enableUser(user){
     home.querySelector('.user--name').innerHTML = `${userActive.name}`;
 }
 
-
 //Validar a Entrada no password....
 function confirmUser(user,password) {
     if(passwordComfirmed(user, password)){
         handleUserList(user)
         return;
     }
-    console.log('não confirmaado \n ERROR');
+    showPassword();
 }
 
 function passwordComfirmed(user,password) {
@@ -46,44 +34,45 @@ function handleUserList(user) {
 //Carregar enumeras tarefas apartir do usuario escolhido
 
 function assembleList(userId) {
-    const userListTask = AllListTask.filter(list=>list.userRef===userId);
     lists.innerHTML = ``;
+    AllListTask.filter(list=>list.userRef===userId)
+        .map(userList=>{
+            const listItem = modelsArea.querySelector('.list').cloneNode(true);
 
-    userListTask.map(userList=>{
-        const listItem = modelsArea.querySelector('.list').cloneNode(true);
+            listItem.querySelector('.list--name').innerHTML = userList.title;
+            listItem.querySelector('.list--numberTask')
+                .innerHTML = userList.tasks.length;
+            
+            listItem.addEventListener('click',(e)=>{
+                listActive = userList;
+                handleTasks(listActive)
+            });
 
-        listItem.querySelector('.list--name').innerHTML = userList.title;
-        listItem.querySelector('.list--numberTask')
-            .innerHTML = userList.tasks.length;
-        
-        listItem.addEventListener('click',(e)=>{
-            handletasks(userList.title,userList.tasks)
+            lists.append(listItem);
         });
 
-        lists.append(listItem);
-    });
+}
 
+function showPassword() {
+    passwordView.style.opacity = '1';
 }
 
 function goToHome(){
     listsTask.style.display = 'none';
     home.style.display = 'flex';
 }
-function goback(){
+function goToList(){
     tasksTamplete.style.display = 'none';
     listsTask.style.display = 'block';
+
+    updateList()
 }
 
-function onAddList() {
-    const titleList = getNewData().trim();
+function goToTasks() {
+    listsTask.style.display = 'none';
+    tasksTamplete.style.display = 'block';
 
-    if (titleList) {
-        const newList = new CreateListTasks(titleList);
-        AllListTask.push(newList);
-        hideModal();
-
-        updateList();
-    }
+    updateTasks();
 }
 
 function getNewData() {
@@ -91,7 +80,7 @@ function getNewData() {
 }
 
 function updateList() {
-    //LocalStorge
+    localStorage.setItem('allLists',JSON.stringify(AllListTask));
     assembleList(userActive.id);
 }
 
@@ -100,16 +89,21 @@ function showModal() {
 }
 function hideModal() {
     modalInput.style.display = 'none';
+    modalInput.querySelector('input').value = '';
 }
 
 //Da tarefa escolhida ter os feitos e não feiots
-function handletasks(title,tasks) {
-    listsTask.style.display = 'none';
-    tasksTamplete.style.display = 'block';
-    
-    tasksTamplete.querySelector('.tasks-body').innerHTML='';
+function handleTasks({title,tasks}) {
+    goToTasks()
+
     tasksTamplete.querySelector('.tasks--name')
         .innerHTML = title;
+    
+    assembleTasks(tasks)
+}
+
+function assembleTasks(tasks) {
+    tasksTamplete.querySelector('.tasks-body').innerHTML='';
     
     tasks.map(task=>{
         const taskItem = modelsArea.querySelector('.task').cloneNode(true);
@@ -123,11 +117,26 @@ function handletasks(title,tasks) {
             .innerHTML = task.status?`V`:`O`;
         
         taskItem.addEventListener('click',(e)=>{
-            //makeTaskDone()
+            makeTaskDone(task)
             //trocar a tarefa de paraFazer à Feito e viceVersa
         });
 
         tasksTamplete.querySelector('.tasks-body')
             .append(taskItem);
     });
+}
+
+function makeTaskDone(task) {
+    task.status = !task.status;
+
+    updateTasks();
+}
+
+function updateTasks() {
+    assembleTasks(listActive.tasks);
+}
+
+function onAdd(typeItem) {
+    showModal();
+    typeToAdd = typeItem;
 }
