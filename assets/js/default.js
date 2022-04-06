@@ -1,6 +1,8 @@
 const select = document.querySelector('#accountType');
-const  home = document.querySelector('.home.container')
-const  listsTask = document.querySelector('.listsTask.container')
+const home = document.querySelector('.home.container')
+const passwordInput = document.querySelector('.user-selected input')
+const passwordView = document.querySelector('.user-selected .passwordView')
+const listsTask = document.querySelector('.listsTask.container')
 const lists = listsTask.querySelector('.lists-body .lists');
 const modelsArea = document.querySelector('.modelsArea');
 const tasksTamplete = document.querySelector('.tasks.container');
@@ -13,66 +15,12 @@ const users = [
     {id:4,name:'Nami Helena',password:'NH4',urlImg:'.../../media/mulher1.png'},
     {id:5,name:'Carolina Maria',password:'CM5',urlImg:'.../../media/mulher2.png'}
 ];
+const AllListTask = localStorage.getItem('allLists')?
+    JSON.parse(localStorage.getItem('allLists')):[];
 
-const AllListTask = [
-    {
-        id:1,
-        userRef:1,
-        title:'Fazer Compras',
-        tasks:[
-            {id:1,name:"Arroz"},
-            {id:2,name:"Feijão"},
-            {id:3,name:"Tomate"},
-            {id:4,name:"Farinha"}
-        ]
-    },
-    {
-        id:2,
-        userRef:1,
-        title:'Programar',
-        tasks:[
-            {id:1,name:"Java"},
-            {id:2,name:"JavaScript"},
-            {id:3,name:"Php"}
-        ]
-    },
-    {
-        id:3,
-        userRef:2,
-        title:'Estudar Física',
-        tasks:[
-            {id:1,name:"Mecânica"},
-            {id:2,name:"Elétrostatica"},
-            {id:3,name:"Termodinâmica"},
-            {id:4,name:"Ondas"}
-        ]
-    },
-    {
-        id:4,
-        userRef:2,
-        title:'Fazer Exercícos',
-        tasks:[
-            {id:1,name:"Agachamento"},
-            {id:2,name:"Fleções"},
-            {id:3,name:"Levantar Peso"},
-            {id:4,name:"Correr"},
-            {id:5,name:"Saltar"}
-        ]
-    },
-    {
-        id:5,
-        userRef:3,
-        title:'Fazer Compras',
-        tasks:[
-            {id:1,name:"PC"},
-            {id:2,name:"Impressora"},
-            {id:3,name:"Tinta"},
-            {id:4,name:"Lapiseras"},
-            {id:4,name:"Cadernos"},
-            {id:5,name:"Roupas"}
-        ]
-    }
-]
+let userActive,listActive,typeToAdd;
+
+//Substituir Essa var com uma ligação ao Local Storge
 
 users.map(user=>{
     const userOption = document.createElement('option');
@@ -87,3 +35,33 @@ select.addEventListener('input',(e)=>{
 
     enableUser(user)
 })
+
+document.querySelector(".home #logIn").addEventListener('click',(e)=>{
+    e.preventDefault();
+
+    if (userActive) {
+        const password = document.querySelector('.home #password').value;
+        confirmUser(userActive,password);
+    }
+});
+
+passwordInput.addEventListener('input',()=>passwordView.style.opacity = '0')
+
+modalInput.querySelector('a')
+    .addEventListener('click',e=>{
+        e.preventDefault();
+        const itemText = getNewData().trim();
+
+        if (itemText) {
+            if (typeToAdd === 'list') {
+                AllListTask.push(new CreateListTasks(itemText));
+                updateList();
+            } 
+            if(typeToAdd === 'tasks') {
+                listActive.tasks.push(new CreateTasks(itemText));
+                updateTasks();
+            }
+            
+            hideModal();
+        }
+    });
