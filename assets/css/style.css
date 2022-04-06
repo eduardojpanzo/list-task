@@ -82,7 +82,6 @@ main .container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
 }
 .user-selected input,
 .user-selected button{
@@ -96,6 +95,12 @@ main .container{
     width: 70%;
     border:1px solid var(--line-color-two);
     font-size: 12pt;
+}
+.user-selected .passwordView{
+    opacity: 0;
+    color:#f00d;
+    font-size: 12pt;
+    transition: all ease 0.5s;
 }
 .user-selected button{
     width: 100px;
@@ -210,6 +215,7 @@ main .container{
     background-color: var(--primary-color);
     text-transform: uppercase;
     color: var(--global-color-one);
+    cursor: pointer;
 
     padding: 20px 0;
     display: flex;
