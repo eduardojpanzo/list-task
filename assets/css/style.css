@@ -164,6 +164,7 @@ main .container{
     gap: 10px;
 }
 .lists .list{
+    position: relative;
     padding: 10px;
     background-color: var(--global-color-one);
     box-shadow: 0 2px 4px #aaa8;
@@ -265,3 +266,23 @@ main .container{
     padding: 6px 10px;
     font-size: 14pt;
 }
+
+.delete-btn {
+    cursor: pointer;
+    background-color: #e74c3c;
+    border: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 2px 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .list:hover .delete-btn {
+    opacity: 1;
+  }
