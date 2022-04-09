@@ -13,8 +13,11 @@
 ### O ainda não Faz e não tem
 * Editar as tarefas
 * Eliminar um única tarefa (só elimina uma coleção)
+* Mostar a percentagem das tarefas feitas e não feitas
+* Pesquisar por uma tarefa
 * um sistema back-end
 
 ### Toda contribuiçao é bem-vinda ✔
 ### O código pode melhorar 💻
 ### Práticando os meus Conhecimento em JS 😊
+### crétido da UI a [UIDesignDaily.com](https://www.uidesigndaily.com/posts/sketch-task-list-app-mobile-day-816) 👈🏿
