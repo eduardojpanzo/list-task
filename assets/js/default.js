@@ -132,7 +132,7 @@ function assembleTasks(tasks) {
         taskItem.querySelector('.task--name')
             .innerHTML = task.name;
         taskItem.querySelector('.task--status')
-            .innerHTML = task.status?`V`:`O`;
+            .innerHTML = task.status?`✔`:`⚫`;
         
         taskItem.addEventListener('click',(e)=>{
             /* Futuramente...
