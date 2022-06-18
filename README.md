@@ -21,3 +21,5 @@
 ### O código pode melhorar 💻
 ### Práticando os meus Conhecimento em JS 😊
 ### crétido da UI a [UIDesignDaily.com](https://www.uidesigndaily.com/posts/sketch-task-list-app-mobile-day-816) 👈🏿
+
+![publish](https://user-images.githubusercontent.com/96853842/174456759-d60851e6-8085-4b9b-bf23-1009fe3cdee4.jpg)
