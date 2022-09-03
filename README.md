@@ -1,5 +1,33 @@
 # list-task
- ## Uma App feito em JavaScript Puro
+
+![publish](https://user-images.githubusercontent.com/96853842/174456759-d60851e6-8085-4b9b-bf23-1009fe3cdee4.jpg)
+
+## 🧪 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [JavaScrpt](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+
+## 🚀 Como executar
+
+Clone o projeto e acesse a pasta do mesmo.
+
+```bash
+$ git clone https://github.com/EduardoPanzo/templates-cloned-without-framework
+$ cd templates-cloned-without-framework
+```
+
+Para iniciá-lo, siga os passos abaixo:
+```bash
+# Iniciar o projeto
+$ abrir na raiz o arquivo #index.html 
+```
+O app estará disponível no seu browser
+
+
+## 💻 Projeto
  
  ### O que Faz e como?
  * Entrar (login Simples) com um úsuario, Tem cinco disponível
@@ -10,16 +38,15 @@
 * Organizar as tarefas por grupo
 * Eliminar a coleção de tarefas
 
-### O ainda não Faz e não tem
+<!-- ### O ainda não Faz e não tem
 * Editar as tarefas
 * Eliminar um única tarefa (só elimina uma coleção)
 * Mostar a percentagem das tarefas feitas e não feitas
 * Pesquisar por uma tarefa
-* um sistema back-end
+* um sistema back-end -->
 
 ### Toda contribuiçao é bem-vinda ✔
 ### O código pode melhorar 💻
 ### Práticando os meus Conhecimento em JS 😊
-### crétido da UI a [UIDesignDaily.com](https://www.uidesigndaily.com/posts/sketch-task-list-app-mobile-day-816) 👈🏿
 
-![publish](https://user-images.githubusercontent.com/96853842/174456759-d60851e6-8085-4b9b-bf23-1009fe3cdee4.jpg)
+### Crétido da UI a [UIDesignDaily.com](https://www.uidesigndaily.com/posts/sketch-task-list-app-mobile-day-816) 👈🏿
