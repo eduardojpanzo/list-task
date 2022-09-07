@@ -26,7 +26,7 @@ modalInput.querySelector('a')
 
         if (itemText) {
             if (typeToAdd === 'list') {
-                AllListTask.push(new CreateListTasks(itemText));
+                allListTask.push(new CreateListTasks(itemText));
                 updateList();
             } 
             if(typeToAdd === 'tasks') {
@@ -36,7 +36,13 @@ modalInput.querySelector('a')
             
             hideModal();
         }
-    });
+});
+
+modalInput.addEventListener('click',(event)=>{
+    if (modalInput === event.target) {
+       hideModal(); 
+    }
+})
 
 function getNewData() {
     return modalInput.querySelector('input').value
@@ -47,6 +53,7 @@ function onAdd(typeItem) {
     typeToAdd = typeItem;
 }
 
+//Modal Events function
 function showModal() {
     modalInput.style.display = 'flex';
 }
@@ -54,5 +61,3 @@ function hideModal() {
     modalInput.style.display = 'none';
     modalInput.querySelector('input').value = '';
 }
-
-//melhorar a permanec

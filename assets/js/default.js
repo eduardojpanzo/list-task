@@ -19,7 +19,8 @@ const users = [
     {id:4,name:'Nami Helena',password:'NH4',urlImg:'.../../media/mulher1.png'},
     {id:5,name:'Carolina Maria',password:'CM5',urlImg:'.../../media/mulher2.png'}
 ];
-let AllListTask = localStorage.getItem('allLists')?
+
+let allListTask = localStorage.getItem('allLists')?
     JSON.parse(localStorage.getItem('allLists')):[];
 
 let userActive,listActive,typeToAdd;
@@ -75,7 +76,7 @@ function showPassword() {
 }
 
 function updateList() {
-    localStorage.setItem('allLists',JSON.stringify(AllListTask));
+    localStorage.setItem('allLists',JSON.stringify(allListTask));
     assembleList(userActive.id);
 }
 
@@ -83,7 +84,7 @@ function updateList() {
 function assembleList(userId) {
     lists.innerHTML = ``;
     
-    AllListTask.filter(list=>list.userRef===userId)
+    allListTask.filter(list=>list.userRef===userId)
         .map(userList=>{
             const listItem = modelsArea.querySelector('.list').cloneNode(true);
 
@@ -100,13 +101,13 @@ function assembleList(userId) {
                 goToTasks(listActive)
             });
 
-            lists.append(listItem);
-        });
+        lists.append(listItem);
+    });
+    
 }
 
 function removeList(userList) {
-    AllListTask = AllListTask.filter(list=>list.id !== userList.id);
-    
+    allListTask = allListTask.filter(list=>list.id !== userList.id);
     updateList();
 }
 
@@ -120,11 +121,10 @@ function goToTasks({title,tasks}) {
     assembleTasks(tasks);
 }
 
-
 function assembleTasks(tasks) {
     tasksTamplete.querySelector('.tasks-body').innerHTML='';
     
-    tasks.map(task=>{
+    tasks.forEach(task=>{
         const taskItem = modelsArea.querySelector('.task').cloneNode(true);
         
         taskItem.classList.add(task.status?`task-done`:`task-to-do`)
@@ -135,15 +135,15 @@ function assembleTasks(tasks) {
             .innerHTML = task.status?`✔`:`⚫`;
         
         taskItem.addEventListener('click',(e)=>{
-            /* Futuramente...
-            if(e.target.tagName==='BUTTON'){
-                removeTask(tasks,task)
+            // eliminar uma tasks
+            if(e.target.matches('button.delete-task')){
+                removeTask(task.id)
                 return;
             } 
-            */
-            
-            //trocar a tarefa de paraFazer à Feito e viceVersa
-            makeTaskDone(task)
+
+            //mudar o status da tarefa
+            makeTaskDone(task.id);
+
         });
 
         tasksTamplete.querySelector('.tasks-body')
@@ -151,15 +151,39 @@ function assembleTasks(tasks) {
     });
 }
 
-/*futuramente
-function removeTask(tasks,task) {
-    tasks.filter(({id})=> id !== task.id);
+function removeTask(taskId) {
+    const newTasks = listActive.tasks.filter(task=> task.id !== taskId);
+    
+    updateCurrentListTasks(newTasks)
+}
 
+function makeTaskDone(taskId) {
+    const newTasks = listActive.tasks.map(task=>{
+        if (task.id === taskId) {
+            return {
+                ...task,
+                status:!task.status
+            }
+        }
+
+        return task;
+    });
+    
+    updateCurrentListTasks(newTasks)
+}
+
+function updateCurrentListTasks(newTasks) {
+    listActive.tasks = newTasks
+
+    allListTask = allListTask.map(listTask=>{
+        if (listTask.id === listActive.id) {
+            return {...listActive}
+        }
+
+        return listTask
+    })
+
+    updateList()
+    
     assembleTasks(listActive.tasks);
-} */
-
-function makeTaskDone(task) {
-    task.status = !task.status;
-
-    assembleTasks(listActive.tasks)
 }
