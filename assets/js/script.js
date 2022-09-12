@@ -1,8 +1,8 @@
-mountUsersIntoSelect();
+mountUserSelvesIntoSelect();
 
 select.addEventListener('input',(e)=>{
     const userId = Number(e.target.value)
-    const user = users.filter(user=>user.id === userId)[0];
+    const user = userSelves.filter(user=>user.id === userId)[0];
 
     enableUser(user);
 })

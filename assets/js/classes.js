@@ -18,3 +18,14 @@ class CreateTasks{
         this.status = false;
     }
 }
+
+class UserSelf{
+    static lastId = 0;
+
+    constructor(name,password,urlImg){
+        this.id = UserSelf.lastId++;
+        this.name = name;
+        this.password = password;
+        this.urlImg = urlImg;
+    }
+}

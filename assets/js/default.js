@@ -1,3 +1,5 @@
+let userActive,listActive,typeToAdd;
+
 const select = document.querySelector('#accountType');
 const home = document.querySelector('.home.container');
 const passwordInput = document.querySelector('.user-selected #password');
@@ -12,7 +14,7 @@ const tasksTamplete = document.querySelector('.tasks.container');
 const modalInput = document.querySelector('.modalInput');
 const modelsArea = document.querySelector('.modelsArea');
 
-const users = [
+let userSelves = [
     {id:1,name:'Jordam Machael',password:'JM1',urlImg:'.../../media/homem.png'},
     {id:2,name:'Miguel Eduardo',password:'ME2',urlImg:'.../../media/homem1.png'},
     {id:3,name:'Pedro Anfré',password:'PA3',urlImg:'.../../media/homem2.png'},
@@ -23,15 +25,41 @@ const users = [
 let allListTask = localStorage.getItem('allLists')?
     JSON.parse(localStorage.getItem('allLists')):[];
 
-let userActive,listActive,typeToAdd;
 
 function goToHome(){
     listsTask.style.display = 'none';
     home.style.display = 'flex';
 }
 
-function mountUsersIntoSelect() {
-    users.map(user=>{
+function CreateNewUserSelf({name,password,urlImg}) {
+    const newUserSelf = new UserSelf(name,password,urlImg);
+    userSelves.push(newUserSelf)
+
+    updateUserSelves()
+}
+
+function removeUserSelf(selfId) {
+    userSelves = userSelves.filter(self=>self.id !== selfId);
+    const selfListsTask = allListTask.filter(list=>list.userRef === selfId);
+
+    selfListsTask.forEach(list=>removeList(list));
+
+    updateUserSelves();
+}
+
+function updateUserSelves(){
+    localStorage.setItem('userSelves',JSON.stringify(userSelves));
+    mountUserSelvesIntoSelect();
+}
+
+function mountUserSelvesIntoSelect() {
+    select.innerHTML = `
+        <option disabled selected>
+            Selecione Uma Conta
+        </option>
+    `;
+    
+    userSelves.map(user=>{
         const userOption = document.createElement('option');
         userOption.setAttribute('value',user.id);
         userOption.innerHTML = user.name;
